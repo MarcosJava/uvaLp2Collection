@@ -2,6 +2,7 @@ package br.com.mrcsfelipe.collections.controller;
 
 import java.util.HashSet;
 import java.util.Set;
+import java.util.TreeSet;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Produces;
@@ -18,6 +19,8 @@ public class SetController {
 
 	private Set<String> palavras = new HashSet<>();
 	
+	private Set<String> palavrasOrdenadas = new TreeSet<>();
+	
 	@Named
 	@Produces
 	private Person person;
@@ -30,7 +33,8 @@ public class SetController {
 	public void registro(){
 		
 		System.out.println("O nome  é : " + this.person.getName());
-		this.palavras.add(person.getName());
+		this.palavras.add(person.getName().toUpperCase());
+		this.palavrasOrdenadas.add(this.person.getName().toUpperCase());
 		
 		person = new Person();
 	}
@@ -45,6 +49,10 @@ public class SetController {
 
 	public void setPerson(Person person) {
 		this.person = person;
+	}
+
+	public Set<String> getPalavrasOrdenadas() {
+		return palavrasOrdenadas;
 	}
 	
 	

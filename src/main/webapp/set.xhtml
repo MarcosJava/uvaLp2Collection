@@ -4,10 +4,10 @@
       xmlns:f="http://java.sun.com/jsf/core"
       xmlns:ui="http://java.sun.com/jsf/facelets"> 
 
-<h:head>Set -- Collection</h:head> 
+<h:head><title>Set -- Collection</title></h:head> 
 <h:body> 
 	
-	<h1>Set com HashSet</h1>
+	
 	
 	<hr />
 	
@@ -15,26 +15,47 @@
 	<h:outputLabel value="Nome:" for="nome" />
 		<h:inputText  id="nome" value="#{setController.person.name}" />
 		<h:commandButton action="#{setController.registro()}" value="Registrar">
-			<f:ajax render="dtPalavras" execute="@all" />
+			<f:ajax render="dtPalavras dtPalavrasOrdenadas" execute="@all" />
 		</h:commandButton>
 	</h:form>
 	
 	<hr />
 	
-	<h:dataTable id="dtPalavras" 
-				 value="#{setController.palavras}" 
-				 var="palavra" 
-				 title="Palavras" 
-				 border="1">
-	
-		<f:facet name="header"> Palavras não ficaram repetidas</f:facet>
-		
+	<h:panelGrid>
 		<h:column>
-			<f:facet name="header"> Palavra</f:facet>
-			<h:outputLabel value="#{palavra}" />
+			<h:dataTable id="dtPalavras" 
+						 value="#{setController.palavras}" 
+						 var="palavra" 
+						 title="Palavras" 
+						 border="1">
+			
+				<f:facet name="header"> Palavras não ficaram repetidas</f:facet>
+				
+				<h:column>
+					<f:facet name="header"> Palavra</f:facet>
+					<h:outputLabel value="#{palavra}" />
+				</h:column>
+				
+			</h:dataTable>
 		</h:column>
 		
-	</h:dataTable>
-
+		
+		<h:column>
+			<h:dataTable id="dtPalavrasOrdenadas" 
+						 value="#{setController.palavrasOrdenadas}" 
+						 var="palavra" 
+						 title="Palavras" 
+						 border="1">
+			
+				<f:facet name="header"> Palavras não ficaram repetidas e ordenadas</f:facet>
+				
+				<h:column>
+					<f:facet name="header"> Palavra</f:facet>
+					<h:outputLabel value="#{palavra}" />
+				</h:column>
+				
+			</h:dataTable>
+		</h:column>
+	</h:panelGrid>
 </h:body> 
 </html>
