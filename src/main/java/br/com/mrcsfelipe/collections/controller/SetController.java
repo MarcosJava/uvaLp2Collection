@@ -1,17 +1,15 @@
-package br.com.mrcsfelipe.collections.managed;
+package br.com.mrcsfelipe.collections.controller;
 
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.annotation.PostConstruct;
 import javax.enterprise.inject.Model;
-import javax.faces.bean.RequestScoped;
 import javax.faces.context.FacesContext;
 import javax.inject.Inject;
 
 @Model
-@RequestScoped
-public class SetMB {
+public class SetController {
 	
 
 	private Set<String> palavras;
