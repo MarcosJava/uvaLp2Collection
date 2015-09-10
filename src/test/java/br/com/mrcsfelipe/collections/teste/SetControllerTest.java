@@ -1,9 +1,6 @@
 package br.com.mrcsfelipe.collections.teste;
 
-import java.lang.reflect.Member;
 import java.util.logging.Logger;
-
-import javax.annotation.Resources;
 
 import org.jboss.arquillian.container.test.api.Deployment;
 import org.jboss.arquillian.core.api.annotation.Inject;
@@ -25,9 +22,8 @@ public class SetControllerTest {
 	    public static Archive<?> createTestArchive() {
 	        return ShrinkWrap.create(WebArchive.class, "test.war")
 	            .addClasses(SetController.class)
-	            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml")
+	            .addAsWebInfResource(EmptyAsset.INSTANCE, "beans.xml");
 	            // Deploy our test datasource
-	            .addAsWebInfResource("test-ds.xml");
 	    }
 
 	    @Inject
@@ -36,18 +32,18 @@ public class SetControllerTest {
 	    @Inject
 	    Logger log;
 
-	    @Test
-	    public void testRegister() throws Exception {
-	    	setController.setPalavra("Testando a lista");
-	    	setController.registro();
-	    	setController.setPalavra("Testando a lista de nvo");
-	    	setController.registro();
-	    	
-	    	for(String p : setController.getPalavras()){
-	    		log.info("Palavras da lista");
-	    		log.info(p);
-	    	}
-	    	
-	        
-	    }
+//	    @Test
+//	    public void testRegister() throws Exception {
+//	    	setController.setPalavra("Testando a lista");
+//	    	setController.registro();
+//	    	setController.setPalavra("Testando a lista de nvo");
+//	    	setController.registro();
+//	    	
+//	    	for(String p : setController.getPalavras()){
+//	    		log.info("Palavras da lista");
+//	    		log.info(p);
+//	    	}
+//	    	
+//	        
+//	    }
 }

@@ -6,13 +6,26 @@
 
 <h:head>Set -- Collection</h:head> 
 <h:body> 
-
-	<h:inputText value="#{setController.palavra}" />
 	
+	<h1>Set com HashSet</h1>
 	
 	<hr />
 	
-	<h:dataTable value="#{setController.palavra}" var="palavra" title="Palavras">
+	<h:form id="form">
+	<h:outputLabel value="Nome:" for="nome" />
+		<h:inputText  id="nome" value="#{setController.person.name}" />
+		<h:commandButton action="#{setController.registro()}" value="Registrar">
+			<f:ajax render="dtPalavras" execute="@all" />
+		</h:commandButton>
+	</h:form>
+	
+	<hr />
+	
+	<h:dataTable id="dtPalavras" 
+				 value="#{setController.palavras}" 
+				 var="palavra" 
+				 title="Palavras" 
+				 border="1">
 	
 		<f:facet name="header"> Palavras não ficaram repetidas</f:facet>
 		
