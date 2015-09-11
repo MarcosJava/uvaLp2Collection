@@ -9,7 +9,6 @@ import org.jboss.shrinkwrap.api.Archive;
 import org.jboss.shrinkwrap.api.ShrinkWrap;
 import org.jboss.shrinkwrap.api.asset.EmptyAsset;
 import org.jboss.shrinkwrap.api.spec.WebArchive;
-import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import br.com.mrcsfelipe.collections.controller.SetController;
@@ -32,7 +31,7 @@ public class SetControllerTest {
 	    @Inject
 	    Logger log;
 
-//	    @Test
+//	    @Test(timeout=100)
 //	    public void testRegister() throws Exception {
 //	    	setController.setPalavra("Testando a lista");
 //	    	setController.registro();

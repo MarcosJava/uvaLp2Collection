@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head><title>List -- Collection</title></h:head> 
+<h:body> 
+	
+	
+	
+	<hr />
+	
+	<h:form id="form">
+	<h:outputLabel value="Nome:" for="nome" />
+		<h:inputText  id="nome" value="#{listController.person.name}" />
+		<h:commandButton action="#{listController.registro()}" value="Registrar">
+			<f:ajax render="dtPalavras dtPalavrasOrdenadas" execute="@all" />
+		</h:commandButton>
+	</h:form>
+	
+	<hr />
+	
+	<h:panelGrid>
+		<h:column>
+			<h:dataTable id="dtPalavras" 
+						 value="#{setController.palavras}" 
+						 var="palavra" 
+						 title="Palavras" 
+						 border="1">
+			
+				<f:facet name="header"> Palavras não ficaram repetidas</f:facet>
+				
+				<h:column>
+					<f:facet name="header"> Palavra</f:facet>
+					<h:outputLabel value="#{palavra}" />
+				</h:column>
+				
+			</h:dataTable>
+		</h:column>
+		
+		
+		<h:column rendered="#{listController.ordernar}">
+			<h:dataTable id="dtPalavrasOrdenadas" 
+						 value="#{setController.palavrasOrdenadas}" 
+						 var="palavra" 
+						 title="Palavras" 
+						 border="1">
+			
+				<f:facet name="header"> Palavras não ficaram repetidas e ordenadas</f:facet>
+				
+				<h:column>
+					<f:facet name="header"> Palavra</f:facet>
+					<h:outputLabel value="#{palavra}" />
+				</h:column>
+				
+			</h:dataTable>
+		</h:column>
+	</h:panelGrid>
+</h:body> 
+</html>

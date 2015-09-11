@@ -1,6 +1,9 @@
 package br.com.mrcsfelipe.collections.teste;
 
+import static org.junit.Assert.*;
+
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
@@ -34,7 +37,22 @@ public class ListTest {
 	
 	@Test
 	public void ordernacao(){
-		Collections.sort(persons);
+		
+		List<Person> expected = 
+				Arrays.asList(new Person("Antonio"),
+							  new Person("Joao"),
+							  new Person("José"),
+							  new Person("Maria"),
+							  new Person("Zé"));
+		
+		Collections.sort(persons, Person.StuNameComparator);
+		
+		for (Person person : persons) {
+			System.out.println(person.getName());
+		}
+		
+		assertEquals(expected, persons);
+		
 	}
 
 }

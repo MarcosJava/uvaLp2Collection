@@ -28,7 +28,7 @@ public class ListController {
 		person = new Person();
 	}
 	
-	public void registrar(){
+	public void registro(){
 		this.palavras.add(this.person.getName());
 	}
 	
