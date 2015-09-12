@@ -36,9 +36,14 @@ public class SetController {
 		this.palavras.add(person.getName().toUpperCase());
 		this.palavrasOrdenadas.add(this.person.getName().toUpperCase());
 		
-		person = new Person();
+		limparCampo();
+		
 	}
 
+	public void limparCampo(){
+		person = new Person();
+	}
+	
 	public Set<String> getPalavras() {
 		return palavras;
 	}

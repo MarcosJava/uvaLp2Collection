@@ -30,8 +30,13 @@ public class ListController {
 		System.out.println("O nome é " + this.person.getName());
 		
 		this.palavras.add(this.person.getName().toUpperCase());
+		
+		limparCampo();
 	}
 	
+	public void limparCampo(){
+		person = new Person();
+	}
 	
 	public void ordernarLista(){
 		Collections.sort(palavras);
