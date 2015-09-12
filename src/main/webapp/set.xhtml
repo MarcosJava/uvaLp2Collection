@@ -21,15 +21,16 @@
 	
 	<hr />
 	
-	<h:panelGrid>
-		<h:column>
+	<h:panelGrid columns="2" width="100%">
+		
 			<h:dataTable id="dtPalavras" 
 						 value="#{setController.palavras}" 
 						 var="palavra" 
 						 title="Palavras" 
-						 border="1">
+						 border="1"
+						 width="50%">
 			
-				<f:facet name="header"> Palavras não ficaram repetidas</f:facet>
+				<f:facet name="header"> Set -- HashSet</f:facet>
 				
 				<h:column>
 					<f:facet name="header"> Palavra</f:facet>
@@ -37,17 +38,15 @@
 				</h:column>
 				
 			</h:dataTable>
-		</h:column>
 		
-		
-		<h:column>
 			<h:dataTable id="dtPalavrasOrdenadas" 
 						 value="#{setController.palavrasOrdenadas}" 
 						 var="palavra" 
 						 title="Palavras" 
-						 border="1">
+						 border="1"
+						 width="50%">
 			
-				<f:facet name="header"> Palavras não ficaram repetidas e ordenadas</f:facet>
+				<f:facet name="header"> Set -- TreeSet</f:facet>
 				
 				<h:column>
 					<f:facet name="header"> Palavra</f:facet>
@@ -55,7 +54,7 @@
 				</h:column>
 				
 			</h:dataTable>
-		</h:column>
+		
 	</h:panelGrid>
 </h:body> 
 </html>

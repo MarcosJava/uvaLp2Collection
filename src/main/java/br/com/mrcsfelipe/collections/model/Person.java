@@ -10,14 +10,10 @@ public class Person {
 		// TODO Auto-generated constructor stub
 	}
 	
-	
-	
 	public Person(String name) {
 		super();
 		this.name = name;
 	}
-
-
 
 	public static Comparator<Person> StuNameComparator = new Comparator<Person>() {
 
@@ -75,12 +71,5 @@ public class Person {
 		} else if (!name.equals(other.name))
 			return false;
 		return true;
-	}
-
-	
-
-
-	
-	
-
+	}	
 }

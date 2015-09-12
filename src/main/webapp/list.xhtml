@@ -7,7 +7,9 @@
 <h:head><title>List -- Collection</title></h:head> 
 <h:body> 
 	
+	<hr />
 	
+		<h1>List -> ArraysList -> Collection Sorts</h1>
 	
 	<hr />
 	
@@ -15,39 +17,27 @@
 	<h:outputLabel value="Nome:" for="nome" />
 		<h:inputText  id="nome" value="#{listController.person.name}" />
 		<h:commandButton action="#{listController.registro()}" value="Registrar">
-			<f:ajax render="dtPalavras dtPalavrasOrdenadas" execute="@all" />
+			<f:ajax render="dtPalavras" execute="@form" />
 		</h:commandButton>
 	</h:form>
+	
+	<hr />
+	
+	<f:ajax render="dtPalavras" execute="@all" listener="#{listController.ordernarLista()}" event="click">
+		<h:commandButton value="Ordenar" />
+	</f:ajax>
 	
 	<hr />
 	
 	<h:panelGrid>
 		<h:column>
 			<h:dataTable id="dtPalavras" 
-						 value="#{setController.palavras}" 
+						 value="#{listController.palavras}" 
 						 var="palavra" 
 						 title="Palavras" 
 						 border="1">
 			
-				<f:facet name="header"> Palavras não ficaram repetidas</f:facet>
-				
-				<h:column>
-					<f:facet name="header"> Palavra</f:facet>
-					<h:outputLabel value="#{palavra}" />
-				</h:column>
-				
-			</h:dataTable>
-		</h:column>
-		
-		
-		<h:column rendered="#{listController.ordernar}">
-			<h:dataTable id="dtPalavrasOrdenadas" 
-						 value="#{setController.palavrasOrdenadas}" 
-						 var="palavra" 
-						 title="Palavras" 
-						 border="1">
-			
-				<f:facet name="header"> Palavras não ficaram repetidas e ordenadas</f:facet>
+				<f:facet name="header"> Nomes : </f:facet>
 				
 				<h:column>
 					<f:facet name="header"> Palavra</f:facet>

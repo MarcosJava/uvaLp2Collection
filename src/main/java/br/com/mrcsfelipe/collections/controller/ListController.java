@@ -5,7 +5,6 @@ import java.util.Collections;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
-import javax.enterprise.inject.Produces;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Named;
@@ -18,9 +17,7 @@ public class ListController {
 	
 	private List<String> palavras = new ArrayList<>();
 	
-	
 	@Named
-	@Produces
 	private Person person;
 	
 	@PostConstruct
@@ -29,7 +26,10 @@ public class ListController {
 	}
 	
 	public void registro(){
-		this.palavras.add(this.person.getName());
+		
+		System.out.println("O nome é " + this.person.getName());
+		
+		this.palavras.add(this.person.getName().toUpperCase());
 	}
 	
 	
@@ -48,8 +48,6 @@ public class ListController {
 
 	public void setPerson(Person person) {
 		this.person = person;
-	}
-
-	
+	}	
 
 }
