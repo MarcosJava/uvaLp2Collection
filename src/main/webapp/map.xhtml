@@ -1,0 +1,46 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"> 
+
+<h:head></h:head> 
+<h:body> 
+
+	<h:form id="form" prependId="true">
+		<h:outputLabel value="Nome" for="nome" />
+		<h:inputText id="nome" value="#{mapController.person.name}" />
+		<br />
+		
+		<f:ajax render="dt panel" execute="form">
+			<h:commandButton action="#{mapController.coordenador()}" value="Adicionar a Coordenador" />
+			<h:commandButton action="#{mapController.gerente()}" value="Adicionar a Gerente" />
+		</f:ajax>
+		
+		<br /><br />
+		<hr />
+		<h:dataTable value="#{mapController.mapList.keySet()}" var="gerente" id="dt">
+			<h:column headerClass="Nome">
+				#{gerente}
+			</h:column> 
+		</h:dataTable>
+		
+		<h:dataTable value="#{mapController.entries}" var="entry" id="panel">
+		    <h:column>
+		        <f:facet name="header">
+		            <h:outputText value="UserId" />
+		        </f:facet>
+		        <h:outputText value="#{entry.key}" />
+		    </h:column>
+		    <h:column>
+		        <f:facet name="header">
+		            <h:outputText value="Email Id" />
+		        </f:facet>
+		        <h:outputText value="#{entry.value}" />
+		    </h:column>
+		</h:dataTable>
+		
+	</h:form>
+	
+</h:body> 
+</html>
