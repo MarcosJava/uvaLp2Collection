@@ -2,7 +2,6 @@ package br.com.mrcsfelipe.collections.controller;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
@@ -20,6 +19,7 @@ public class MapController {
 
 	private Map<String, String> mapList = new HashMap<>();
 	private List<Entry<String, String>> entries;
+
 	
 	@Named
 	private Person person;
@@ -27,18 +27,25 @@ public class MapController {
 	@PostConstruct
 	public void init(){
 		this.person = new Person();
-		this.entries = new ArrayList<>(this.mapList.entrySet());
+	}
+	
+	public void postResponse(){
+		entries = new ArrayList<>(mapList.entrySet());
+		this.person = new Person();
 	}
 	
 	public void gerente(){
 		this.mapList.put("gerente", this.person.getName());
+		postResponse();
+		
 	}
 	
 	public void coordenador(){
 		this.mapList.put("coordenador", this.person.getName());
+		postResponse();
 	}
-
 	
+
 	public List<Entry<String, String>> getEntries() {
 		return entries;
 	}
