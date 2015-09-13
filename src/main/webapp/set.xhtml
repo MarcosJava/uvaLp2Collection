@@ -15,7 +15,7 @@
 	<h:outputLabel value="Nome:" for="nome" />
 		<h:inputText  id="nome" value="#{setController.person.name}" />
 		<h:commandButton action="#{setController.registro()}" value="Registrar">
-			<f:ajax render="dtPalavras dtPalavrasOrdenadas" execute="@all" />
+			<f:ajax render=":dtPalavras :dtPalavrasOrdenadas" execute="form" />
 		</h:commandButton>
 	</h:form>
 	

@@ -7,6 +7,11 @@
 <h:head></h:head> 
 <h:body> 
 
+	<h1>Map Collection - HashMap</h1>
+
+	<hr /><hr />
+
+
 	<h:form id="form" prependId="true">
 		<h:outputLabel value="Nome" for="nome" />
 		<h:inputText id="nome" value="#{mapController.person.name}" />
@@ -21,7 +26,7 @@
 		<hr />
 	
 		
-		<h:dataTable value="#{mapController.entries}" var="entry" id="panel" border="1" bgcolor="Blue">
+		<h:dataTable value="#{mapController.entries}" var="entry" id="panel" border="1">
 		    <h:column>
 		        <f:facet name="header"> 
 		        	<h:outputText value="Tipo" />

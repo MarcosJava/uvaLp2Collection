@@ -35,27 +35,18 @@ public class MapController {
 	}
 	
 	public void gerente(){
-		this.mapList.put("gerente", this.person.getName());
+		this.mapList.put("gerente", this.person.getName().toUpperCase());
 		postResponse();
 		
 	}
 	
 	public void coordenador(){
-		this.mapList.put("coordenador", this.person.getName());
+		this.mapList.put("coordenador", this.person.getName().toUpperCase());
 		postResponse();
 	}
 	
-
 	public List<Entry<String, String>> getEntries() {
 		return entries;
-	}
-
-	public Map<String, String> getMapList() {
-		return mapList;
-	}
-
-	public String getGerentes(){
-		return this.mapList.get("gerente");
 	}
 	
 	public Person getPerson() {
